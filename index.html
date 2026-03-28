@@ -7,6 +7,10 @@
 <title>StarkBot – AI Support, Instant</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+  @keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
   :root {
     --bg: #060a06;
     --surface: #0a0f0a;
@@ -86,7 +90,19 @@
   .logos-section { padding: 40px 24px; text-align: center; }
   .logos-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 26px; font-weight: 600; }
   .logos-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; align-items: center; }
-  .logo-pill { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: rgba(255,255,255,0.18); letter-spacing: -0.02em; }
+ .logo-pill {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: rgba(134, 239, 172, 0.55);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.logo-pill:hover {
+  color: #4ade80;
+  cursor: default;
+}
 
   .features { padding: 100px 60px; max-width: 1100px; margin: 0 auto; }
   .section-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
@@ -235,13 +251,34 @@
 
 <div class="logos-section">
   <div class="logos-label">Works with every platform</div>
-  <div class="logos-row">
-    <div class="logo-pill">Shopify</div>
-    <div class="logo-pill">WordPress</div>
-    <div class="logo-pill">Wix</div>
-    <div class="logo-pill">Squarespace</div>
-    <div class="logo-pill">Webflow</div>
-    <div class="logo-pill">Custom</div>
+  <div style="position:relative; overflow:hidden; width:100%; padding: 16px 0; mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);">
+    <div style="display:flex; gap:48px; width:max-content; animation: marquee 25s linear infinite;">
+      <span class="logo-pill">Shopify</span>
+      <span class="logo-pill">WordPress</span>
+      <span class="logo-pill">Wix</span>
+      <span class="logo-pill">Squarespace</span>
+      <span class="logo-pill">Webflow</span>
+      <span class="logo-pill">Custom Code</span>
+      <span class="logo-pill">WooCommerce</span>
+      <span class="logo-pill">BigCommerce</span>
+      <span class="logo-pill">Framer</span>
+      <span class="logo-pill">Bubble</span>
+      <span class="logo-pill">Magento</span>
+      <span class="logo-pill">PrestaShop</span>
+      <!-- duplicate for seamless loop -->
+      <span class="logo-pill">Shopify</span>
+      <span class="logo-pill">WordPress</span>
+      <span class="logo-pill">Wix</span>
+      <span class="logo-pill">Squarespace</span>
+      <span class="logo-pill">Webflow</span>
+      <span class="logo-pill">Custom Code</span>
+      <span class="logo-pill">WooCommerce</span>
+      <span class="logo-pill">BigCommerce</span>
+      <span class="logo-pill">Framer</span>
+      <span class="logo-pill">Bubble</span>
+      <span class="logo-pill">Magento</span>
+      <span class="logo-pill">PrestaShop</span>
+    </div>
   </div>
 </div>
 
