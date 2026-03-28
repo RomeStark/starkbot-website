@@ -272,30 +272,70 @@
 <section class="pricing" id="pricing">
   <div class="section-label">Pricing</div>
   <div class="section-title">Simple, transparent pricing</div>
+  <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 52px; margin-top: -40px;">Start free. No credit card required for your first 14 days.</p>
+
   <div class="pricing-grid">
-    <div class="price-card">
+
+    <!-- STARTER (Decoy) -->
+    <div class="price-card decoy" style="opacity: 0.7;">
       <div class="plan-name">Starter</div>
       <div class="plan-price">$49<span>/mo</span></div>
-      <div class="plan-desc">Perfect for small stores just getting started with AI support.</div>
-      <ul class="plan-features"><li>500 conversations/month</li><li>1 bot</li><li>FAQ upload</li><li>Basic analytics</li><li>Email support</li></ul>
-      <button class="btn-plan">Get Started</button>
+      <div class="plan-desc">Basic access. Limited to just 1 bot and a small number of conversations per month.</div>
+      <ul class="plan-features">
+        <li>100 conversations/month</li>
+        <li>1 bot only</li>
+        <li>FAQ upload</li>
+        <li style="color: var(--muted);">✗ No custom branding</li>
+        <li style="color: var(--muted);">✗ No analytics</li>
+        <li style="color: var(--muted);">✗ No human handoff</li>
+      </ul>
+      <button class="btn-plan" style="opacity: 0.5;">Get Started</button>
     </div>
-    <div class="price-card popular">
-      <div class="popular-badge">Most Popular</div>
+
+    <!-- PRO (Hero) -->
+    <div class="price-card popular" style="box-shadow: 0 0 60px rgba(34,197,94,0.15), 0 0 0 1px #22c55e; transform: scale(1.04); z-index: 2;">
+      <div style="background: linear-gradient(90deg, #22c55e, #4ade80); color: #021a0a; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; padding: 7px 16px; border-radius: 10px 10px 0 0; margin: -36px -36px 24px -36px;">
+        First 2 weeks completely free — no card needed 🎉
+      </div>
+      <div class="popular-badge">⭐ Best Value</div>
       <div class="plan-name">Pro</div>
       <div class="plan-price">$99<span>/mo</span></div>
-      <div class="plan-desc">For growing businesses that need more conversations and customization.</div>
-      <ul class="plan-features"><li>2,000 conversations/month</li><li>3 bots</li><li>Custom branding</li><li>Human handoff</li><li>Full analytics dashboard</li><li>Priority support</li></ul>
-      <button class="btn-plan accent">Get Started</button>
+      <div class="plan-desc">Everything you need to run world-class customer support. Loved by 500+ businesses.</div>
+      <ul class="plan-features">
+        <li>2,000 conversations/month</li>
+        <li>3 bots</li>
+        <li>Custom branding & colors</li>
+        <li>Human handoff</li>
+        <li>Full analytics dashboard</li>
+        <li>Priority support</li>
+        <li>Multilingual responses</li>
+      </ul>
+      <button class="btn-plan accent">Start Free — 14 Days on Us →</button>
     </div>
+
+    <!-- BUSINESS (Anchor) -->
     <div class="price-card">
+      <div style="display: inline-block; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); color: var(--muted); font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 10px;">Enterprise</div>
       <div class="plan-name">Business</div>
-      <div class="plan-price">$249<span>/mo</span></div>
-      <div class="plan-desc">Unlimited everything for agencies and high-traffic stores.</div>
-      <ul class="plan-features"><li>Unlimited conversations</li><li>Unlimited bots</li><li>White-label (your brand)</li><li>API access</li><li>Dedicated account manager</li><li>Custom integrations</li></ul>
-      <button class="btn-plan">Get Started</button>
+      <div class="plan-price">$799<span>/mo</span></div>
+      <div class="plan-desc">For large enterprises with dedicated infrastructure, compliance, and custom SLA requirements.</div>
+      <ul class="plan-features">
+        <li>Unlimited conversations</li>
+        <li>Unlimited bots</li>
+        <li>White-label (your brand)</li>
+        <li>Dedicated server infrastructure</li>
+        <li>Custom SLA & compliance</li>
+        <li>Dedicated account manager</li>
+        <li>Custom API integrations</li>
+        <li>SOC 2 & GDPR reports</li>
+      </ul>
+      <button class="btn-plan">Contact Sales</button>
     </div>
+
   </div>
+
+  <p style="text-align: center; margin-top: 28px; font-size: 0.8rem; color: var(--muted);">🔒 <span style="color: #22c55e; font-weight: 600;">14-day free trial</span> on Pro · Cancel anytime · No contracts</p>
+
 </section>
 
 <section class="cta-section">
