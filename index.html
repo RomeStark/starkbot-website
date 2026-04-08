@@ -418,29 +418,112 @@
   <p style="font-size:0.78rem; color: var(--muted);">Built on Claude AI by Anthropic</p>
 </footer>
   <!-- STARKBOT CHAT WIDGET -->
-  <div id="sb-widget">
-    <div id="sb-widget" style="position:fixed; bottom:24px; right:24px; z-index:9999;">
-  <button id="sb-btn" onclick="toggleWidget()" style="width:54px; height:54px; border-radius:50%; background:#22c55e; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(34,197,94,0.4);">
+  <div id="sb-widget" style="position:fixed; bottom:24px; right:24px; z-index:9999; font-family:'Plus Jakarta Sans',sans-serif;">
+  <div id="sb-window" style="display:none; flex-direction:column; position:absolute; bottom:68px; right:0; width:320px; background:#0a0f0a; border:1px solid rgba(34,197,94,0.2); border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <div style="background:#0f160f; padding:12px 14px; display:flex; align-items:center; gap:9px; border-bottom:1px solid rgba(34,197,94,0.12);">
+      <div style="width:32px; height:32px; border-radius:50%; background:#22c55e; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="15" rx="5" ry="6" fill="white" opacity="0.9"/><ellipse cx="14" cy="11" rx="4.5" ry="4" fill="white" opacity="0.9"/><circle cx="12.2" cy="10.5" r="0.9" fill="#021a0a"/><circle cx="15.8" cy="10.5" r="0.9" fill="#021a0a"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:12px; font-weight:700; color:#eeffee;">StarkBot Support</div>
+        <div style="font-size:10px; color:#22c55e; display:flex; align-items:center; gap:3px; margin-top:1px;">
+          <span style="width:5px; height:5px; border-radius:50%; background:#22c55e; display:inline-block;"></span> Online — replies instantly
+        </div>
+      </div>
+      <button onclick="toggleWidget()" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; font-size:18px; line-height:1;">✕</button>
+    </div>
+    <div id="sb-messages" style="padding:12px; display:flex; flex-direction:column; gap:10px; height:260px; overflow-y:auto; scroll-behavior:smooth;">
+      <div style="display:flex; gap:7px; align-items:flex-end;">
+        <div style="width:22px; height:22px; border-radius:50%; background:#22c55e; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+          <svg width="12" height="12" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="15" rx="5" ry="6" fill="white" opacity="0.9"/><ellipse cx="14" cy="11" rx="4.5" ry="4" fill="white" opacity="0.9"/><circle cx="12.2" cy="10.5" r="0.9" fill="#021a0a"/><circle cx="15.8" cy="10.5" r="0.9" fill="#021a0a"/></svg>
+        </div>
+        <div style="padding:8px 12px; border-radius:12px; border-bottom-left-radius:3px; font-size:12px; line-height:1.5; max-width:210px; background:#0f160f; color:#eeffee; border:1px solid rgba(34,197,94,0.12);">Hi! 👋 How can I help you today?</div>
+      </div>
+    </div>
+    <div id="sb-quick" style="display:flex; flex-wrap:wrap; gap:5px; padding:0 12px 8px;">
+      <span onclick="sbQuick('What services do you offer?')" style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:20px; padding:4px 10px; font-size:10px; color:#4ade80; cursor:pointer;">Our services</span>
+      <span onclick="sbQuick('How does pricing work?')" style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:20px; padding:4px 10px; font-size:10px; color:#4ade80; cursor:pointer;">Pricing</span>
+      <span onclick="sbQuick('How do I get started?')" style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:20px; padding:4px 10px; font-size:10px; color:#4ade80; cursor:pointer;">Get started</span>
+    </div>
+    <div style="padding:8px 10px; border-top:1px solid rgba(34,197,94,0.1); display:flex; gap:7px; align-items:center; background:#0a0f0a;">
+      <input id="sb-input" onkeydown="if(event.key==='Enter')sbSend()" placeholder="Type a message..." style="flex:1; background:#0f160f; border:1px solid rgba(34,197,94,0.15); border-radius:7px; padding:7px 10px; font-size:11px; color:#eeffee; outline:none; font-family:inherit;"/>
+      <button id="sb-send" onclick="sbSend()" style="width:30px; height:30px; border-radius:7px; background:#22c55e; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#021a0a"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+    </div>
+    <div style="text-align:center; padding:5px; font-size:9px; color:rgba(107,143,107,0.5); border-top:1px solid rgba(34,197,94,0.06);">Powered by StarkBot · Built on Claude AI</div>
+  </div>
+  <button id="sb-btn" onclick="toggleWidget()" style="width:54px; height:54px; border-radius:50%; background:#22c55e; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(34,197,94,0.4); transition:transform 0.2s;">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="#021a0a"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
   </button>
 </div>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#021a0a"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-    </button>
-  </div>
-<script>
-    function toggleWidget() {
-      alert('Chat coming soon!');
-    }
 
-    async function sendToStarkBot(message, businessName, businessInfo) {
-      const response = await fetch('/api/chat', {
+<script>
+  function toggleWidget() {
+    const w = document.getElementById('sb-window');
+    w.style.display = w.style.display === 'none' ? 'flex' : 'none';
+    if (w.style.display === 'flex') w.style.flexDirection = 'column';
+  }
+
+  function sbAddMessage(text, isUser) {
+    const messages = document.getElementById('sb-messages');
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex; gap:7px; align-items:flex-end;' + (isUser ? 'flex-direction:row-reverse;' : '');
+    if (!isUser) {
+      row.innerHTML = `<div style="width:22px;height:22px;border-radius:50%;background:#22c55e;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="15" rx="5" ry="6" fill="white" opacity="0.9"/><ellipse cx="14" cy="11" rx="4.5" ry="4" fill="white" opacity="0.9"/><circle cx="12.2" cy="10.5" r="0.9" fill="#021a0a"/><circle cx="15.8" cy="10.5" r="0.9" fill="#021a0a"/></svg></div><div style="padding:8px 12px;border-radius:12px;border-bottom-left-radius:3px;font-size:12px;line-height:1.5;max-width:210px;background:#0f160f;color:#eeffee;border:1px solid rgba(34,197,94,0.12);">${text}</div>`;
+    } else {
+      row.innerHTML = `<div style="padding:8px 12px;border-radius:12px;border-bottom-right-radius:3px;font-size:12px;line-height:1.5;max-width:210px;background:#22c55e;color:#021a0a;font-weight:500;">${text}</div>`;
+    }
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function sbShowTyping() {
+    const messages = document.getElementById('sb-messages');
+    const t = document.createElement('div');
+    t.id = 'sb-typing';
+    t.style.cssText = 'display:flex;gap:7px;align-items:flex-end;';
+    t.innerHTML = `<div style="width:22px;height:22px;border-radius:50%;background:#22c55e;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="15" rx="5" ry="6" fill="white" opacity="0.9"/><ellipse cx="14" cy="11" rx="4.5" ry="4" fill="white" opacity="0.9"/><circle cx="12.2" cy="10.5" r="0.9" fill="#021a0a"/><circle cx="15.8" cy="10.5" r="0.9" fill="#021a0a"/></svg></div><div style="padding:8px 12px;border-radius:12px;border-bottom-left-radius:3px;background:#0f160f;border:1px solid rgba(34,197,94,0.12);display:flex;gap:4px;align-items:center;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(34,197,94,0.5);animation:sb-bounce 1.2s infinite;display:inline-block;"></span><span style="width:5px;height:5px;border-radius:50%;background:rgba(34,197,94,0.5);animation:sb-bounce 1.2s 0.2s infinite;display:inline-block;"></span><span style="width:5px;height:5px;border-radius:50%;background:rgba(34,197,94,0.5);animation:sb-bounce 1.2s 0.4s infinite;display:inline-block;"></span></div>`;
+    messages.appendChild(t);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  async function sbSend() {
+    const input = document.getElementById('sb-input');
+    const text = input.value.trim();
+    if (!text) return;
+    document.getElementById('sb-quick').style.display = 'none';
+    sbAddMessage(text, true);
+    input.value = '';
+    document.getElementById('sb-send').disabled = true;
+    sbShowTyping();
+    try {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, businessName, businessInfo })
+        body: JSON.stringify({
+          message: text,
+          businessName: 'StarkBot',
+          businessInfo: 'StarkBot provides AI-powered customer support chatbots for small businesses and e-commerce stores. We offer Starter ($19/mo), Pro ($49/mo) and Business ($499/mo) plans. The Pro plan includes a free 14-day trial.'
+        })
       });
-      const data = await response.json();
-      return data.reply;
+      const data = await res.json();
+      document.getElementById('sb-typing').remove();
+      sbAddMessage(data.reply, false);
+    } catch(e) {
+      document.getElementById('sb-typing').remove();
+      sbAddMessage("Sorry, something went wrong. Please try again!", false);
     }
-  </script>
+    document.getElementById('sb-send').disabled = false;
+  }
+
+  function sbQuick(text) {
+    document.getElementById('sb-input').value = text;
+    sbSend();
+  }
+</script>
+<style>
+  @keyframes sb-bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
+</style>
 </body>
 </html>
