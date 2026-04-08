@@ -417,6 +417,26 @@
   <p>© 2026 StarkBot. All rights reserved.</p>
   <p style="font-size:0.78rem; color: var(--muted);">Built on Claude AI by Anthropic</p>
 </footer>
+  <!-- STARKBOT CHAT WIDGET -->
+  <div id="sb-widget">
+    <button id="sb-btn" onclick="toggleWidget()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#021a0a"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </button>
+  </div>
+<script>
+    function toggleWidget() {
+      alert('Chat coming soon!');
+    }
 
+    async function sendToStarkBot(message, businessName, businessInfo) {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, businessName, businessInfo })
+      });
+      const data = await response.json();
+      return data.reply;
+    }
+  </script>
 </body>
 </html>
