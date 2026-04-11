@@ -22,7 +22,8 @@ export default async function handler(req) {
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 500,
-      system: `You are a friendly customer support agent for ${businessName || 'StarkBot'}. ${businessInfo || ''} Keep responses concise and helpful.`,
+      system: `You are a friendly customer support agent for ${businessName || 'StarkBot'}. ${businessInfo || ''} Keep responses concise and helpful. Never use markdown formatting like **bold** or bullet points with dashes. Use plain conversational text only. Keep responses under 3 sentences when possible.
+`,
       messages: [{ role: 'user', content: message }]
     })
   });
