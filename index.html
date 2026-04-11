@@ -459,11 +459,13 @@
 </div>
 
 <script>
-  function toggleWidget() {
-    const w = document.getElementById('sb-window');
-    w.style.display = w.style.display === 'none' ? 'flex' : 'none';
-    if (w.style.display === 'flex') w.style.flexDirection = 'column';
-  }
+ function toggleWidget() {
+  const w = document.getElementById('sb-window');
+  if (!w) return;
+  const isOpen = w.style.display === 'flex';
+  w.style.display = isOpen ? 'none' : 'flex';
+  if (!isOpen) w.style.flexDirection = 'column';
+}
 
   function sbAddMessage(text, isUser) {
     const messages = document.getElementById('sb-messages');
