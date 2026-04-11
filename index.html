@@ -547,6 +547,8 @@
       document.getElementById('sb-typing')?.remove();
       sbAddMessage("Sorry, something went wrong. Please try again!", false);
     }
+    document.getElementById('sb-send').disabled = false;
+  }
 
   function sbQuick(text) {
     document.getElementById('sb-input').value = text;
