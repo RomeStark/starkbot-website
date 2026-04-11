@@ -535,7 +535,7 @@
             try {
               const parsed = JSON.parse(data);
               if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
-                streamBubble.textContent += parsed.delta.text;
+              streamBubble.innerText += parsed.delta.text;
                 document.getElementById('sb-messages').scrollTop = document.getElementById('sb-messages').scrollHeight;
               }
             } catch {}
