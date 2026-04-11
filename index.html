@@ -513,7 +513,7 @@
       const bubble = document.createElement('div');
       bubble.style.cssText = 'display:flex;gap:7px;align-items:flex-end;';
       const uniqueId = 'stream-' + Date.now();
-      bubble.innerHTML = `<div style="width:22px;height:22px;border-radius:50%;background:#22c55e;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="15" rx="5" ry="6" fill="white" opacity="0.9"/><ellipse cx="14" cy="11" rx="4.5" ry="4" fill="white" opacity="0.9"/><circle cx="12.2" cy="10.5" r="0.9" fill="#021a0a"/><circle cx="15.8" cy="10.5" r="0.9" fill="#021a0a"/></svg></div><div id="${uniqueId}" style="padding:8px 12px;border-radius:12px;border-bottom-left-radius:3px;font-size:12px;line-height:1.5;max-width:210px;background:#0f160f;color:#eeffee;border:1px solid rgba(34,197,94,0.12);"></div>`;
+      bubble.innerHTML = `<<div style="width:22px;height:22px;border-radius:50%;background:#22c55e;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><img src="/favicon.svg" style="width:18px;height:18px;object-fit:contain;"/></div><div id="${uniqueId}" style="padding:8px 12px;border-radius:12px;border-bottom-left-radius:3px;font-size:12px;line-height:1.5;max-width:210px;background:#0f160f;color:#eeffee;border:1px solid rgba(34,197,94,0.12);"></div>`;
       document.getElementById('sb-messages').appendChild(bubble);
       const streamBubble = document.getElementById(uniqueId);
       const reader = res.body.getReader();
